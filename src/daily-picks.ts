@@ -6,7 +6,7 @@ import { toCstDateStr } from "./date.ts";
 import { fetchHfData } from "./hf.ts";
 import { fetchHnData } from "./hn.ts";
 import { collectCandidates, dedupeAndRank, type PickCandidate } from "./picks.ts";
-import { parseLlmJson, callLlm } from "./report.ts";
+import { callLlm, parseLlmJson } from "./report.ts";
 import { fetchTrendingData } from "./trending.ts";
 
 interface Recommendation {
@@ -15,30 +15,23 @@ interface Recommendation {
 }
 
 interface RecommendationResponse {
-  summary: string;
-  picks: Recommendation[];
+  summary?: string;
+  picks?: Recommendation[];
 }
 
 function buildPrompt(candidates: PickCandidate[]): string {
   const list = candidates
     .map(
       (item, index) =>
-        `${index + 1}. [${item.id}] ${item.title}\n来源：${item.source}｜雷达分：${item.score}/100｜信号：${item.signal}\n说明：${item.description}\n链接：${item.url}`,
+        `${index + 1}. [${item.id}] ${item.title}\nSource: ${item.source} | Score: ${item.score}/100 | Signal: ${item.signal}\nDescription: ${item.description}\nURL: ${item.url}`,
     )
     .join("\n\n");
 
-  return `你是中文科技情报编辑。以下是已完成去重和初步打分的 30 条 AI/开源链接。请只挑出最值得实际点击的 5 条，优先考虑：可用性、今天的热度、技术影响力、与 AI 开发者的相关度和来源多样性。
+  return `You are an editor for a daily AI and open-source radar. Select exactly five useful and diverse links from the ranked candidates below. Prefer practical usefulness, current momentum, technical impact, relevance to AI builders, and source diversity.\n\nCandidates:\n${list}\n\nReturn JSON only, with no markdown or commentary:\n{"summary":"one concise sentence","picks":[{"id":"an exact candidate id","reason":"a concise recommendation reason"}]}\n\nRules:\n- picks must contain exactly five entries\n- every id must exactly match a candidate id\n- do not repeat projects or URLs`;
+}
 
-候选链接：
-${list}
-
-只返回合法 JSON，不要 Markdown 或解释，格式必须为：
-{"summary":"一句话概括今天最值得关注的方向","picks":[{"id":"候选的完整 id","reason":"不超过 55 个中文字的推荐理由"}]}
-
-规则：
-- picks 必须恰好 5 条，且 id 必须来自候选列表
-- 不要重复同一项目或链接
-- 推荐理由要具体，提及热度、能力或适用场景，不要空泛赞美`;
+function fallbackReason(item: PickCandidate): string {
+  return `Ranked ${item.score}/100 from ${item.source}; ${item.signal}`;
 }
 
 function buildMarkdown(
@@ -49,35 +42,46 @@ function buildMarkdown(
 ): string {
   const byId = new Map(candidates.map((item) => [item.id, item]));
   const selected: Array<{ item: PickCandidate; reason: string }> = [];
-  for (const pick of response.picks) {
+
+  for (const pick of response.picks ?? []) {
     const item = byId.get(pick.id);
     if (!item || selected.some((entry) => entry.item.id === item.id)) continue;
-    selected.push({ item, reason: pick.reason.trim() });
+    const reason = pick.reason?.trim() || fallbackReason(item);
+    selected.push({ item, reason });
+    if (selected.length === 5) break;
   }
-  if (selected.length !== 5)
-    throw new Error(`LLM returned ${selected.length} valid recommendations; expected 5.`);
+
+  for (const item of candidates) {
+    if (selected.length === 5) break;
+    if (selected.some((entry) => entry.item.id === item.id)) continue;
+    selected.push({ item, reason: fallbackReason(item) });
+  }
+
+  const usedFallback = (response.picks?.length ?? 0) !== 5 || selected.some((entry) => entry.reason === fallbackReason(entry.item));
+  if (usedFallback) console.warn("[picks] LLM response was incomplete; filled remaining picks from ranked links.");
 
   const lines = [
-    `# 信息雷达 · ${date}`,
+    `# Information Radar - ${date}`,
     "",
-    `> 今日从 ${total} 条候选链接中去重、评分，筛出 30 条，再精选 5 条。`,
+    `> Collected ${total} raw links, deduplicated and ranked 30, then selected 5 recommendations.`,
     "",
-    `**今日判断：** ${response.summary.trim()}`,
+    `**Today at a glance:** ${response.summary?.trim() || "Top ranked AI and open-source updates, with an automatic fallback for reliable daily delivery."}`,
     "",
-    "## 今日 5 条推荐",
+    "## Top 5 recommendations",
     "",
   ];
+
   for (const [index, entry] of selected.entries()) {
     const { item, reason } = entry;
     lines.push(
       `### ${index + 1}. [${item.title}](${item.url})`,
-      `- 来源：${item.source}｜雷达分：${item.score}/100`,
-      `- 热度信号：${item.signal}`,
-      `- 推荐理由：${reason}`,
+      `- Source: ${item.source} | Radar score: ${item.score}/100`,
+      `- Signal: ${item.signal}`,
+      `- Why it matters: ${reason}`,
       "",
     );
   }
-  lines.push("---", "由 agents-radar 自动生成。");
+  lines.push("---", "Generated automatically by agents-radar.");
   return lines.join("\n");
 }
 
@@ -97,9 +101,6 @@ async function main(): Promise<void> {
 
   const raw = await callLlm(buildPrompt(candidates), 1536);
   const response = parseLlmJson<RecommendationResponse>(raw);
-  if (!response.summary || !Array.isArray(response.picks))
-    throw new Error("LLM response did not include summary and picks.");
-
   const content = buildMarkdown(date, allCandidates.length, candidates, response);
   const outputDir = path.join("digests", date);
   fs.mkdirSync(outputDir, { recursive: true });
