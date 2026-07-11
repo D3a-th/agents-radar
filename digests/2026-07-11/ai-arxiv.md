@@ -1,113 +1,138 @@
 # ArXiv AI 研究日报 2026-07-11
 
-> 数据来源: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 共 50 篇论文 | 生成时间: 2026-07-11 01:28 UTC
+> 数据来源: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 共 50 篇论文 | 生成时间: 2026-07-11 08:08 UTC
 
 ---
 
-好的，作为AI研究分析师，以下是根据您提供的2026年7月11日ArXiv论文列表生成的《ArXiv AI 研究日报》。
+# ArXiv AI 研究日报 | 2026-07-11
 
 ---
 
-### **ArXiv AI 研究日报 (2026-07-11)**
+## 今日速览
 
-#### **今日速览**
-
-今日研究亮点集中在**智能体的实用化与可靠性**，包括面向真实世界的基准测试（UniClawBench）、长期任务记忆机制（Remember When It Matters）和多智能体协作搜索（WebSwarm）。在基础模型方面，**视频生成作为推理路径**（OpenCoF）和**量化对模型行为的隐蔽影响**（The Illusion of Equivalency）等研究挑战了传统认知。此外，高效的模型压缩（BiSCo-LLM）和解码加速（DominoTree）等优化工作也值得关注。
-
-#### **重点论文**
-
-##### 🧠 **大语言模型（架构、训练、对齐、评估）**
-
-1.  **The Illusion of Equivalency: Statistical Characterization of Quantization Effects in LLMs**
-    *   B. Rababah et al.
-    *   **一句话说明**: 揭示了现有量化评估仅依赖准确率和困惑度的局限性，证明了量化会引入准确率以外的、不可忽略的行为变化，对模型部署的安全性提出了警示。
-    *   [http://arxiv.org/abs/2607.08734v1](http://arxiv.org/abs/2607.08734v1)
-
-2.  **Super Weights in LLMs and the Failure of Selective Training**
-    *   S. Subramanian et al.
-    *   **一句话说明**: 对“超级权重”（关键参数）的概念提出了挑战，发现其重要性并非普遍适用，且针对它们的特殊训练策略可能失效，修正了对模型参数重要性的认知。
-    *   [http://arxiv.org/abs/2607.08733v1](http://arxiv.org/abs/2607.08733v1)
-
-3.  **BiSCo-LLM: Lookup-Free Binary Spherical Coding for Extreme Low-Bit Large Model Compression**
-    *   Y. Shao et al.
-    *   **一句话说明**: 提出了一种新颖的二进制球形编码方法，实现了免查表的极端低位（如二进制）模型压缩，显著降低了LLM部署的内存和带宽需求，是模型轻量化的重要进展。
-    *   [http://arxiv.org/abs/2607.08643v1](http://arxiv.org/abs/2607.08643v1)
-
-4.  **DominoTree: Conditional Tree-Structured Drafting with Domino for Speculative Decoding**
-    *   S. S. Lin et al.
-    *   **一句话说明**: 提出了一种名为DominoTree的条件树状草稿方法，用于推测性解码，相比现有方法能生成更高质量的草稿，从而加速LLM推理。
-    *   [http://arxiv.org/abs/2607.08642v1](http://arxiv.org/abs/2607.08642v1)
-
-##### 🤖 **智能体与推理（规划、工具使用、多智能体、思维链）**
-
-5.  **UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks**
-    *   Z. Chen et al.
-    *   **一句话说明**: 提出了一个用于评估能主动操作工具的智能体的通用基准，填补了现有基准难以评估真实世界环境中主动代理能力的空白。
-    *   [http://arxiv.org/abs/2607.08768v1](http://arxiv.org/abs/2607.08768v1)
-
-6.  **OpenCoF: Learning to Reason Through Video Generation**
-    *   X. Chen et al.
-    *   **一句话说明**: 创新性地将视频生成模型作为新的推理路径，认为通过时序连接的帧进行推理（即“帧思维链”）可以替代传统的文字思维链，为具身推理提供了新思路。
-    *   [http://arxiv.org/abs/2607.08763v1](http://arxiv.org/abs/2607.08763v1)
-
-7.  **Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents**
-    *   Y. Wu et al.
-    *   **一句话说明**: 提出一种“主动记忆”智能体，能在长程任务中主动检索和利用历史轨迹中的关键信息，有效解决了智能体在长时间跨度任务中上下文窗口限制和信息遗忘的问题。
-    *   [http://arxiv.org/abs/2607.08716v1](http://arxiv.org/abs/2607.08716v1)
-
-8.  **WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search**
-    *   X. Song et al.
-    *   **一句话说明**: 提出递归多智能体协作框架，通过并行、递归的搜索策略解决复杂、深度的网页搜索任务，突破了单个ReAct智能体的长轨迹和上下文限制。
-    *   [http://arxiv.org/abs/2607.08662v1](http://arxiv.org/abs/2607.08662v1)
-
-9.  **Latent Memory Palace: Reasoning for Control as Autoregressive Variational Inference**
-    *   C. Zhu et al.
-    *   **一句话说明**: 提出将语言模型的链式推理能力迁移到连续控制任务中，通过自回归变分推断让机器人策略拥有“思考”能力，根据需要调整动作的即时性或延迟性。
-    *   [http://arxiv.org/abs/2607.08724v1](http://arxiv.org/abs/2607.08724v1)
-
-##### 🔧 **方法与框架（新技术、基准测试、效率优化）**
-
-10. **Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation**
-    *   Y. Zhou et al.
-    *   **一句话说明**: 受生物学基因组启发，构建了评估AI系统跟踪、理解并基于科学思想“谱系”进行创新的基准（IdeaGene-Bench），推动AI在科学发现领域的能力评估。
-    *   [http://arxiv.org/abs/2607.08758v1](http://arxiv.org/abs/2607.08758v1)
-
-11. **Score Accuracy Along the Forward Diffusion Does Not Certify Numerical Stability in Diffusion Sampling**
-    *   Y. Zhou
-    *   **一句话说明**: 从理论上证明了扩散模型在正向过程中的得分准确性并不能保证逆向采样过程的数值稳定性，为理解和优化扩散模型的采样过程提供了关键见解。
-    *   [http://arxiv.org/abs/2607.08757v1](http://arxiv.org/abs/2607.08757v1)
-
-12. **It Takes a MAESTRO To Prune Bad Experts**
-    *   P. Goel et al.
-    *   **一句话说明**: 提出了一种名为MAESTRO的结构化剪枝方法，用于剪除混合专家模型（MoE）中的“坏”专家，在保持性能的同时有效减少模型部署的内存占用。
-    *   [http://arxiv.org/abs/2607.08601v1](http://arxiv.org/abs/2607.08601v1)
-
-##### 📊 **应用（垂直领域、多模态、代码生成）**
-
-13. **AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding**
-    *   S. Damodharan et al.
-    *   **一句话说明**: 构建了针对行车记录仪场景的视觉问答基准，专门评估VLM在复杂驾驶事件（如事故）中的理解和推理能力，对自动驾驶安全评估具有直接价值。
-    *   [http://arxiv.org/abs/2607.08745v1](http://arxiv.org/abs/2607.08745v1)
-
-14. **ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation**
-    *   Q. Chen et al.
-    *   **一句话说明**: 提出了一种名为“过程相似性检索”的新方法，用于仓库级代码生成，通过理解函数实现过程（而非仅结构或语义）来更精准地利用项目中已有的代码模式。
-    *   [http://arxiv.org/abs/2607.08691v1](http://arxiv.org/abs/2607.08691v1)
-
-15. **Towards Precision Therapy in Hepatocellular Carcinoma: A Clinical-Reasoning LLM for Risk Stratification and Treatment Guidance**
-    *   P. Cui et al.
-    *   **一句话说明**: 开发了针对肝癌的临床推理大模型（HCC-STAR），用于进行更精细的风险分层和治疗指导，展示了LLM在精准医疗中的巨大潜力。
-    *   [http://arxiv.org/abs/2607.08602v1](http://arxiv.org/abs/2607.08602v1)
-
-#### **研究趋势信号**
-
-从今日论文中观察到两个新兴趋势：**一是“推理路径的多元化”**，传统CoT正从文本扩展到视频帧（OpenCoF）和连续控制策略（Latent Memory Palace）；**二是“智能体评估的系统化”**，业界正从单一任务评测转向更复杂的、涉及长程记忆（Remember When）、多智能体协作（WebSwarm）和真实世界约束（UniClawBench, SolarChain-Eval）的综合评估。这表明AI研究正从追求能力上限转向关注其可靠性、鲁棒性与实用性。
-
-#### **值得精读**
-
-1.  **OpenCoF: Learning to Reason Through Video Generation**: 推荐理由：该论文提出的“通过视频生成进行推理”是一个极具颠覆性的思路，它挑战了语言中心主义的推理范式，为具身智能和视频理解领域开辟了全新方向。
-2.  **The Illusion of Equivalency: Statistical Characterization of Quantization Effects in LLMs**: 推荐理由：这篇论文切中要害，量化模型的广泛部署使其安全性问题愈发重要。它指出了当前评估体系的盲点，对于模型压缩、部署和负责任AI具有重要的指导意义。
-3.  **UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks**: 推荐理由：一个优秀的基准测试能推动整个领域的发展。该工作聚焦于“主动智能体”这一前沿方向，并设计了通用的真实世界任务，将是未来智能体研究的重要评估工具。
+今日投稿凸显三大趋势：**智能体正从单步工具调用迈向长时程自主推理**（UniClawBench、Proactive Memory Agent、WebSwarm）；**LLM 质量提升从“堆数据”转向“精炼数据”**（UltraX、Super Weights 对剪枝的质疑）；**推理新范式涌现**——视频生成作为推理路径（OpenCoF）、科学思想谱系基准（Ideas Have Genomes）。同时，模型压缩与高效推理继续是热点（BiSCo-LLM、DominoTree、MAESTRO），多模态与医疗应用也出现高质量工作。
 
 ---
-*本日报由 [agents-radar](https://github.com/duanyytop/agents-radar) 自动生成。*
+
+## 重点论文
+
+### 🧠 大语言模型（架构、训练、对齐、评估）
+
+- **Super Weights in LLMs and the Failure of Selective Training**  
+  [ArXiv](http://arxiv.org/abs/2607.08733v1) | Subramanian et al.  
+  发现“超级权重”对模型性能的影响并非普遍存在，且针对超级权重的训练策略效果有限，挑战了以往对关键参数的认知。
+
+- **The Illusion of Equivalency: Statistical Characterization of Quantization Effects in LLMs**  
+  [ArXiv](http://arxiv.org/abs/2607.08734v1) | Rababah et al.  
+  提出正确性一致率等新指标，揭示量化后的 LLM 在 perplexity/准确率之外的隐性行为漂移。
+
+- **UltraX: Refining Pre-Training Data at Scale with Adaptive Programmatic Editing**  
+  [ArXiv](http://arxiv.org/abs/2607.08646v1) | Zhao et al.  
+  提出自适应程序化编辑方法精炼预训练语料，在规模已到物理上限时通过数据质量突破 Scaling Law 瓶颈。
+
+- **BiSCo-LLM: Lookup-Free Binary Spherical Coding for Extreme Low-Bit LLM Compression**  
+  [ArXiv](http://arxiv.org/abs/2607.08643v1) | Shao et al.  
+  无查找表的二值球面编码方案，实现极低比特压缩，同时保持推理效率与精度。
+
+- **It Takes a MAESTRO To Prune Bad Experts**  
+  [ArXiv](http://arxiv.org/abs/2607.08601v1) | Goel et al.  
+  针对 MoE 模型的结构化剪枝方法，在保持稀疏激活优势的同时减少内存占用。
+
+---
+
+### 🤖 智能体与推理（规划、工具使用、多智能体、思维链）
+
+- **UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks**  
+  [ArXiv](http://arxiv.org/abs/2607.08768v1) | Chen et al.  
+  首个评估主动式智能体在真实世界操作工具的通用基准，填补当前评测短板。
+
+- **OpenCoF: Learning to Reason Through Video Generation**  
+  [ArXiv](http://arxiv.org/abs/2607.08763v1) | Chen et al.  
+  提出通过视频生成来展开时序推理，为超越链式思维的推理提供新范式。
+
+- **Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents**  
+  [ArXiv](http://arxiv.org/abs/2607.08716v1) | Wu et al.  
+  主动记忆机制，使智能体在长时任务中能根据需求回溯关键决策信息，避免上下文窗口遗忘。
+
+- **WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search**  
+  [ArXiv](http://arxiv.org/abs/2607.08662v1) | Song et al.  
+  递归式多智能体编排架构，突破单智能体轨迹长度和上下文限制，实现深度、广泛的网络搜索。
+
+- **SolarChain-Eval: A Physics-Constrained Benchmark for Trustworthy Economic Agents in Decentralized Energy Markets**  
+  [ArXiv](http://arxiv.org/abs/2607.08681v1) | Ou et al.  
+  物理约束下评估经济智能体的可信度，指出单纯优化收益可能利用无效数据或产生不公平行为。
+
+---
+
+### 🔧 方法与框架（新技术、基准测试、效率优化）
+
+- **Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation**  
+  [ArXiv](http://arxiv.org/abs/2607.08758v1) | Zhou et al.  
+  科学思想谱系推理基准，要求 AI 理解“继承、修复、重组”的思想演化过程，挑战现有评估体系。
+
+- **Resample or Reroute? Budget-Aware Test-Time Model Selection for LLMs**  
+  [ArXiv](http://arxiv.org/abs/2607.08665v1) | Chen  
+  分析测试时重采样 vs 路由策略，揭示预算约束下最优模型选择方案，对 LLM 服务部署有直接指导意义。
+
+- **DominoTree: Conditional Tree-Structured Drafting with Domino for Speculative Decoding**  
+  [ArXiv](http://arxiv.org/abs/2607.08642v1) | Lin & Jang  
+  条件树状草稿生成方法，结合 Domino 机制，在投机解码中提升草稿质量和并行验证效率。
+
+- **When Structured Sparse Autoencoders Learn Consistent Concepts Across Modalities**  
+  [ArXiv](http://arxiv.org/abs/2607.08605v1) | Liao et al.  
+  结构化稀疏自编码器在视觉-语言模型中学习到跨模态一致概念，推进多模态可解释性。
+
+- **A Practical Investigation of Training-free Relaxed Speculative Decoding**  
+  [ArXiv](http://arxiv.org/abs/2607.08690v1) | Xia et al.  
+  无需训练的松弛投机解码，在保持加速效果的同时放宽对目标分布精确匹配的要求。
+
+---
+
+### 📊 应用（垂直领域、多模态、代码生成）
+
+- **ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation**  
+  [ArXiv](http://arxiv.org/abs/2607.08691v1) | Chen et al.  
+  基于过程相似性检索的仓库级代码生成，超越了传统词汇/语义检索，捕获跨文件编程模式。
+
+- **AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding**  
+  [ArXiv](http://arxiv.org/abs/2607.08745v1) | Damodharan et al.  
+  聚焦行车记录仪事故场景的 VQA 基准，评估 VLM 在动态/高风险场景下的逻辑推理能力。
+
+- **Towards Precision Therapy in Hepatocellular Carcinoma: A Clinical-Reasoning LLM for Risk Stratification and Treatment Guidance**  
+  [ArXiv](http://arxiv.org/abs/2607.08602v1) | Cui et al.  
+  临床推理 LLM（HCC-STAR）整合电子病历进行肝癌风险分层与治疗建议，推动精准医疗。
+
+- **ARDY: Autoregressive Diffusion with Hybrid Representation for Interactive Human Motion Generation**  
+  [ArXiv](http://arxiv.org/abs/2607.08741v1) | Zhao et al.  
+  自回归扩散模型生成交互式 3D 人体运动，兼顾实时性与控制精度，适用于动画与机器人。
+
+- **VocaDet: Sample-Driven Open-Vocabulary Object Detection and Segmentation via Visual Tokenization and Vector Database Retrieval**  
+  [ArXiv](http://arxiv.org/abs/2607.08541v1) | Sun  
+  基于视觉词元化和向量数据库的样本驱动开词汇检测分割，减少对大量标注的依赖。
+
+---
+
+## 研究趋势信号
+
+1. **数据质量 vs 数据规模**：UltraX、Super Weights 等论文表明，当数据规模趋近上限时，质量精炼与参数重要性的细致分析将成为 LLM 竞争力新关键。  
+2. **推理范式的多模态化**：OpenCoF 用视频生成替代文本链式推理，Ideas Have Genomes 用生物谱系结构衡量科学推理，提示未来推理评估将更多耦合时序与因果结构。  
+3. **智能体长期记忆与信任**：Proactive Memory Agent、SolarChain-Eval 分别关注长时程记忆管理和可信物理约束，智能体正从“单轮回答”向“持续自主决策”演进，信任与记忆成为核心瓶颈。
+
+---
+
+## 值得精读
+
+1. **OpenCoF: Learning to Reason Through Video Generation**  
+   [ArXiv](http://arxiv.org/abs/2607.08763v1)  
+   **理由**：突破性地将视频生成作为推理载体，为超越语言链式推理提供了全新技术路线，对理解“时序连贯性是否等价于逻辑推导”有重要启发。
+
+2. **Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation**  
+   [ArXiv](http://arxiv.org/abs/2607.08758v1)  
+   **理由**：构建科学思想演化谱系基准，直击当前 LLM 无法理解“继承-修复-重组”创新过程的痛点，对推动 AI 辅助科研具有里程碑意义。
+
+3. **Super Weights in LLMs and the Failure of Selective Training**  
+   [ArXiv](http://arxiv.org/abs/2607.08733v1)  
+   **理由**：实证挑战了“超级权重”的普遍性和训练补偿的有效性，迫使社区重新审视剪枝与参数重要性的基础假设，对模型压缩实践有直接警示作用。
+
+---
+*本日报由 [agents-radar](https://github.com/D3a-th/agents-radar) 自动生成。*

@@ -1,79 +1,113 @@
 # AI 开源趋势日报 2026-07-11
 
-> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-07-11 01:28 UTC
+> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-07-11 08:08 UTC
 
 ---
 
-好的。作为专注于 AI 开源生态的技术分析师，我已对您提供的 2026-07-11 数据完成筛选、分类和趋势分析。以下是《AI 开源趋势日报》。
+# AI 开源趋势日报（2026-07-11）
+
+## 今日速览
+- **Agent Skill 生态爆发**：`addyosmani/agent-skills`、`mattpocock/skills`、`obra/superpowers` 等多款“AI Agent 技能库”项目单日获得超千星，标准化 Agent 技能文件成为新浪潮。
+- **Office/桌面操作 Agent 工具集中发布**：`OfficeCLI` 专为 AI Agent 设计 Office 读写能力，`DesktopCommanderMCP` 提供终端控制 MCP 服务，`TencentDB-Agent-Memory` 实现本地长期记忆，Agent 工具链日趋完善。
+- **前沿 LLM 推理与 Agent 框架持续升温**：`vllm`、`ollama` 等推理引擎热度不减，`affaan-m/ECC`（Agent 性能调优）和 `TauricResearch/TradingAgents`（金融多智能体）刷新高 star 记录，社区追求更高性能和专业化应用。
 
 ---
 
-### 《AI 开源趋势日报》 | 2026-07-11
+## 各维度热门项目
 
-### 1. 今日速览
+### 🔧 AI 基础工具（框架、SDK、推理引擎、开发工具、CLI）
+- **[vllm-project/vllm](https://github.com/vllm-project/vllm)** ⭐85,948  
+  高吞吐、内存高效的 LLM 推理与 serving 引擎，支撑大规模模型部署。
+- **[ollama/ollama](https://github.com/ollama/ollama)** ⭐175,901  
+  一键运行多种开源大模型的本地推理工具，今日已支持 Kimi、GLM、DeepSeek 等最新模型。
+- **[browser-use/browser-use](https://github.com/browser-use/browser-use)** ⭐104,178  
+  让 AI Agent 能像人一样操控浏览器的自动化工具，Web 任务执行利器。
+- **[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl)** ⭐149,057  
+  大规模网页抓取与交互 API，为 LLM 提供实时数据和搜索能力。
+- **[esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix)** ⭐26,646  
+  基于 DeepSeek 的终端 AI 编码 Agent，强调前缀缓存稳定性。
+- **[CopilotKit/CopilotKit](https://github.com/CopilotKit/CopilotKit)** ⭐35,916  
+  面向 Agent 和生成式 UI 的前端框架，支持 React/Angular/Mobile 等多端。
 
-今日AI开源社区的核心焦点是 **“Agent 技能工程”（Agent Skills）** 的爆发。以 `addyosmani/agent-skills` 和 `mattpocock/skills` 为首的项目引爆了热榜，标志着社区正从“如何构建Agent”转向“如何高效武装Agent”。同时，AI 驱动的办公自动化工具 `iOfficeAI/OfficeCLI` 和专为AI Agent提供持久化记忆的 `TencentCloud/TencentDB-Agent-Memory` 也获得了大量关注，显示出AI应用正快速渗透到具体业务场景和数据管理层面。
+### 🤖 AI 智能体/工作流（Agent 框架、自动化、多智能体）
+- **[Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT)** ⭐185,462  
+  经典自主 Agent 框架，持续引领通用 AI Agent 开发范式。
+- **[OpenHands/OpenHands](https://github.com/OpenHands/OpenHands)** ⭐80,421  
+  AI 驱动的软件开发助手，支持代码生成、调试、部署等全流程自动化。
+- **[wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP)** ⭐+328 today  
+  为 Claude 提供终端控制、文件搜索与编辑能力的 MCP 服务器，今日新星。
+- **[mattpocock/skills](https://github.com/mattpocock/skills)** ⭐+1712 today  
+  从 Claude 技能目录中提取的“真实工程师”Agent 技能集合，今日暴增。
+- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** ⭐+1116 today  
+  生产级 AI 编码 Agent 技能库，标准化技能文件格式。
+- **[obra/superpowers](https://github.com/obra/superpowers)** ⭐+1013 today  
+  一个代理式技能框架与软件开发方法论，今日大热。
+- **[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)** ⭐92,264  
+  多智能体金融交易框架，基于 LLM 的量化决策系统。
 
-### 2. 各维度热门项目
+### 📦 AI 应用（具体应用产品、垂直场景解决方案）
+- **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** ⭐+1224 today  
+  首个专为 AI Agent 打造的 Office 套件 CLI，支持读写 Word/Excel/PPT，无需 Office 安装。
+- **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** ⭐+123 today  
+  本地化长期记忆管道，四层渐进式架构，零外部 API，适合 Agent 上下文管理。
+- **[CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)** ⭐48,430  
+  AI 生产力工作室：智能聊天、自主 Agent、300+ 助手，统一接入前沿 LLM。
+- **[zhayujie/CowAgent](https://github.com/zhayujie/CowAgent)** ⭐45,917  
+  开源超级 AI 助手 + Agent 框架，支持任务规划、工具调用、记忆与知识演进。
+- **[santifer/career-ops](https://github.com/santifer/career-ops)** ⭐59,592  
+  AI 求职助手：扫描职位、打分、定制简历、跟踪申请，完全本地运行。
+- **[ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis)** ⭐56,567  
+  LLM 驱动的多市场股票智能分析系统，支持零成本定时运行。
 
-#### 🔧 AI 基础工具
+### 🧠 大模型/训练（模型权重、训练框架、微调工具）
+- **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** ⭐212,930  
+  伴随用户成长的 Agent 项目，背后强大模型支撑（Hermes 系列），当前最受欢迎 Agent 之一。
+- **[tensorflow/tensorflow](https://github.com/tensorflow/tensorflow)** ⭐196,291  
+  经典 ML 框架，持续更新支持最新模型与硬件加速。
+- **[pytorch/pytorch](https://github.com/pytorch/pytorch)** ⭐101,730  
+  动态神经网络框架，深度学习研发的主流选择。
+- **[huggingface/transformers](https://github.com/huggingface/transformers)** ⭐162,476  
+  SOTA 模型定义与训练框架，支持文本/视觉/语音/多模态。
+- **[open-compass/opencompass](https://github.com/open-compass/opencompass)** ⭐7,184  
+  LLM 评测平台，支持 100+ 数据集、主流模型评测。
+- **[starpig1129/DATAGEN](https://github.com/starpig1129/DATAGEN)** ⭐1,768  
+  AI 多智能体研究助手，自动生成假设、分析数据、撰写报告。
 
-- **[wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP)** | ⭐0 (+328 today)
-  - **一句话说明**: 为Claude提供终端控制、文件系统和代码编辑功能的MCP服务器，让Agent能力下沉到操作系统层面。
-- **[davila7/claude-code-templates](https://github.com/davila7/claude-code-templates)** | ⭐0 (+118 today)
-  - **一句话说明**: 管理和配置 Claude Code 的 CLI 工具，降低了Agent编码助手的使用门槛和配置复杂度。
-- **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** | ⭐0 (+123 today)
-  - **一句话说明**: 为 AI Agent 提供完全本地化、长期记忆的内存层方案，无需外部API，是Agent持久化记忆的重要基础设施。
-- **[obra/superpowers](https://github.com/obra/superpowers)** | ⭐0 (+1013 today)
-  - **一句话说明**: 一套有体系的Agent技能框架和软件开发方法论，为社区提供了如何组织Agent能力的思考范式。
-
-#### 🤖 AI 智能体/工作流
-
-- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** | ⭐0 (+1116 today)
-  - **一句话说明**: 由 Chrome 工程负责人创建的生产级AI编码Agent技能库，代表了Agent“技能包”开发的工程化标准。
-- **[mattpocock/skills](https://github.com/mattpocock/skills)** | ⭐0 (+1712 today)
-  - **一句话说明**: 直接从知名开发者 `.claude` 配置文件导出的实战技能集合，为Agent提供了“真实工程师”的实战经验。
-- **[google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills)** | ⭐0 (+117 today)
-  - **一句话说明**: Google Labs 推出的官方Agent技能库，遵循开放标准，旨在与多个主流编码Agent兼容，有巨头背书。
-- **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** | ⭐0 (+1224 today)
-  - **一句话说明**: 专为AI Agent设计的Office套件CLI工具，是Agent替代人类操作办公软件的关键一步，精准切中办公自动化痛点。
-
-#### 📦 AI 应用
-
-- **[iOfficeAI/AionUi](https://github.com/iOfficeAI/AionUi)** | ⭐29,787 [topic:ai-agent]
-  - **一句话说明**: 免费的、支持本地部署的24/7 AI同事应用，是 `OfficeCLI` 的UI层，构建了完整的Agent办公生态。
-- **[CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)** | ⭐48,420 [topic:ai-agent]
-  - **一句话说明**: 集成了智能对话、自主Agent和众多助手的AI生产力工作室，是通用型AI应用平台的代表。
-- **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** | ⭐38,246 [topic:ai-agent]
-  - **一句话说明**: AI驱动的PPT生成工具，能将任何文档转化为可编辑的PowerPoint，解决了文稿演示的自动化难题。
-
-#### 🧠 大模型/训练
-
-- 今日 Trending 和主题搜索中，未见有明显高热度的大模型训练或微调新项目登榜。社区热度主要集中在应用层和工具链。
-
-#### 🔍 RAG/知识库
-
-- **[nogibator/topoteretes/cognee](https://github.com/topoteretes/cognee)** | ⭐27,551 [topic:vector-db]
-  - **一句话说明**: 开源的AI记忆平台，为Agent提供跨会话的持久化长期记忆，利用知识图谱增强RAG能力。
-- **[VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex)** | ⭐33,925 [topic:vector-db]
-  - **一句话说明**: 提出“无向量”的、基于推理的RAG方案，挑战了传统向量数据库的范式，思路新颖。
-- **[memvid/memvid](https://github.com/memvid/memvid)** | ⭐15,739 [topic:vector-db]
-  - **一句话说明**: 强调“serverless”和“单文件”的记忆层方案，提供极简的Agent记忆集成方式。
-
-### 3. 趋势信号分析
-
-今日最重要趋势是 **“Agent Skills (技能)”概念的爆发性增长**。`mattpocock/skills` 和 `addyosmani/agent-skills` 包揽 Trending 榜前二，且 `google-labs-code/stitch-skills` 和 `obra/superpowers` 紧随其后，表明社区正从关注 Agent 框架本身，转向如何为 Agent 注入高质量、可复用的“专业知识”和“操作能力”。这标志着AI编码Agent进入了一个新的工程化阶段，类似于软件工程中从语言到库的演进。
-
-另一个亮点是 **“AI for Office”** 细分赛道的崛起。`iOfficeAI/OfficeCLI` 及其配套UI项目 `AionUi` 的集体登榜，预示着一个全新的软件品类正在形成：**以AI为核心用户的办公套件**。这不再是辅助工具，而是让Agent直接成为生产力工具的操作者。
-
-这些动向与近期各大模型厂商（如 Anthropic、Google）强化Agent能力、推广MCP等工具调用协议密切相关。模型性能趋同后，**数据、工具和技能的生态**成为新的竞争焦点。
-
-### 4. 社区关注热点
-
-- **“Agent Skills” 标准之争与生态构建**：`addyosmani/agent-skills` 和 `google-labs-code/stitch-skills` 正在定义Agent技能的组织和分发标准，值得开发者深入参与和关注，这可能影响未来Agent开发模式。
-- **专为AI设计的办公工具 (`iOfficeAI/OfficeCLI`)**：该项目证明了将传统软件操作权交给Agent的巨大潜力，是探索AI Agent垂直应用场景的绝佳案例，开发类似“Agent-first”的应用可能成为新蓝海。
-- **Agent的长期记忆方案 (`TencentCloud/TencentDB-Agent-Memory`, `mem0ai/mem0`)**：今日的热捧说明记忆是Agent实现“自我进化”的关键瓶颈，如何高效、安全地为Agent提供记忆仍是核心难题，相关技术栈值得重点研究。
-- **MCP（Model Context Protocol）生态的成熟**：从 `wonderwhy-er/DesktopCommanderMCP` 到 `activepieces/activepieces`（集成400+MCP server），MCP已成为连接Agent与外部世界的核心协议，相关工具和服务将持续涌现。
+### 🔍 RAG/知识库（向量数据库、检索增强、知识管理）
+- **[langgenius/dify](https://github.com/langgenius/dify)** ⭐148,470  
+  生产级 Agent 工作流开发平台，内置 RAG 能力。
+- **[open-webui/open-webui](https://github.com/open-webui/open-webui)** ⭐145,021  
+  用户友好的 AI 界面，支持 Ollama、OpenAI，集成 RAG 与知识库。
+- **[infiniflow/ragflow](https://github.com/infiniflow/ragflow)** ⭐84,790  
+  领先的开源 RAG 引擎，融合 Agent 能力，为 LLM 提供上下文层。
+- **[mem0ai/mem0](https://github.com/mem0ai/mem0)** ⭐60,592  
+  通用 AI Agent 记忆层，支持长期记忆存储与检索。
+- **[milvus-io/milvus](https://github.com/milvus-io/milvus)** ⭐45,178  
+  高性能云原生向量数据库，大规模向量 ANN 搜索核心组件。
+- **[qdrant/qdrant](https://github.com/qdrant/qdrant)** ⭐33,138  
+  高可扩展向量搜索引擎，支持 AI 驱动的语义搜索。
+- **[siyuan-note/siyuan](https://github.com/siyuan-note/siyuan)** ⭐45,040  
+  隐私优先、自托管的个人知识管理软件，内置 AI 辅助功能。
 
 ---
-*本日报由 [agents-radar](https://github.com/duanyytop/agents-radar) 自动生成。*
+
+## 趋势信号分析
+今日 GitHub 开源社区最显著的趋势是 **Agent Skill 生态的标准化与工具链爆发**。`agent-skills`、`skills`、`superpowers` 三个项目单日新增 star 合计超过 3800，它们均围绕一个共同理念：将 AI 编码 Agent 的能力封装为可复用、可共享的“技能文件”，类似 VS Code 插件生态。这标志着 Agent 开发从“写提示词”向“组件化工程”演进。
+
+另一个重要信号是**专门化 Agent 工具涌现**：`OfficeCLI` 专攻办公文档操作，`DesktopCommanderMCP` 专攻终端控制，`TencentDB-Agent-Memory` 专攻长期记忆——Agent 能力正被拆解为细颗粒度的 MCP 服务器或 CLI 工具，形成“Agent 即操作系统”的集成模式。
+
+同时，**金融与求职等垂直场景的 LLM 应用**（如 `TradingAgents`、`career-ops`）star 数持续走高，说明社区不再满足于通用聊天，而是聚焦解决具体业务问题。**向量数据库赛道**（Milvus、Qdrant、Weaviate）保持稳定热度，RAG 基础设施仍是刚需。
+
+与近期行业事件关联：Anthropic 发布的 Claude Code 生态刺激了 MCP 和技能标准的发展；DeepSeek 新模型推动 `DeepSeek-Reasonix` 这类专用 Agent 的出现；国产大模型（DeepSeek、GLM、Qwen）的广泛接入（如 ollama 更新）正在重塑开源社区的工具栈选择。
+
+---
+
+## 社区关注热点
+- **Agent Skill 标准文件格式**：关注 `addyosmani/agent-skills` 和 `google-labs-code/stitch-skills`，它们正在定义跨平台（Claude Code、Gemini CLI、Codex 等）的技能互操作规范，可能成为 Agent 开发的“npm”。
+- **OfficeCLI：AI 办公自动化新范式**：`iOfficeAI/OfficeCLI` 是首个专为 Agent 设计的 Office 读写 CLI，无需图形界面即可操作文档，有望成为办公 Agent 的标配工具。
+- **本地长期记忆解决方案**：`TencentDB-Agent-Memory` 和 `mem0ai/mem0` 分别从数据库和通用记忆层角度解决 Agent 上下文持久化问题，是构建稳定 Agent 产品的关键组件。
+- **多智能体金融交易框架**：`TauricResearch/TradingAgents` 展示了 LLM 在量化领域的复杂协调能力，star 数快速攀升，值得研究其架构设计。
+- **RAG 与向量数据库融合**：`infiniflow/ragflow` 和 `Graphify-Labs/graphify` 将知识图谱与 RAG 结合，后者还能将代码、数据库 schema 纳入图结构，为 Agent 提供更智能的上下文。
+
+---
+*本日报由 [agents-radar](https://github.com/D3a-th/agents-radar) 自动生成。*
