@@ -12,9 +12,7 @@ permissions:
 jobs:
   digest:
     runs-on: ubuntu-latest
-    # Web content fetching adds ~60-120 s of HTTP requests on incremental runs;
-    # the first-ever run (fetching 50 articles) may need up to 20 min.
-    timeout-minutes: 40
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -38,15 +36,15 @@ jobs:
           LLM_PROVIDER: deepseek
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-v4-flash
-        run: pnpm picks
+        run: pnpm exec tsx src/daily-picks.ts
 
-      - name: Commit digest files
+      - name: Commit daily picks
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add digests/
           if git diff --cached --quiet; then
-            echo "No new digest files to commit"
+            echo "No new daily picks to commit"
           else
             DATE=$(date -u +%Y-%m-%d)
             git commit -m "digest: ${DATE} daily picks"
@@ -54,12 +52,26 @@ jobs:
             git push
           fi
 
+      - name: Prepare email
+        id: email
+        run: |
+          REPORT="digests/$(date -u +%Y-%m-%d)/daily-picks.md"
+          echo "report=${REPORT}" >> "${GITHUB_OUTPUT}"
+          echo "body<<EOF" >> "${GITHUB_OUTPUT}"
+          cat "${REPORT}" >> "${GITHUB_OUTPUT}"
+          echo "EOF" >> "${GITHUB_OUTPUT}"
+
       - name: Send daily picks email
+        uses: dawidd6/action-send-mail@v3
         env:
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          SMTP_FROM: ${{ secrets.SMTP_FROM }}
-          PICKS_EMAIL_TO: sanjing@netopstec.com
-        run: pnpm email:picks
+        with:
+          server_address: ${{ secrets.SMTP_HOST }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ env.SMTP_PASS }}
+          subject: "信息雷达｜今日 5 条推荐"
+          to: sanjing@netopstec.com
+          from: ${{ secrets.SMTP_FROM }}
+          body: ${{ steps.email.outputs.body }}
+          attachments: ${{ steps.email.outputs.report }}
