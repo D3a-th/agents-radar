@@ -5,6 +5,8 @@
   "packageManager": "pnpm@9.15.9",
   "scripts": {
     "start": "tsx src/index.ts",
+    "picks": "tsx src/daily-picks.ts",
+    "email:picks": "tsx src/email-picks.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
@@ -29,6 +31,7 @@
     "dotenv": "^17.3.1",
     "js-yaml": "^4.1.1",
     "marked": "^17.0.4",
+    "nodemailer": "^9.0.3",
     "openai": "^6.27.0"
   },
   "devDependencies": {
@@ -36,6 +39,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/marked": "^6.0.0",
     "@types/node": "^25.3.5",
+    "@types/nodemailer": "^8.0.1",
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9",
     "eslint-config-prettier": "^10",
