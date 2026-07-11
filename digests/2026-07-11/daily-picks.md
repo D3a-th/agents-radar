@@ -2,7 +2,7 @@
 
 > Collected 164 raw links, deduplicated and ranked 30, then selected 5 recommendations.
 
-**Today at a glance:** Five practical links for AI builders: Claude cookbooks for hands-on usage, Baidu OCR for image-to-text, fixed chat templates for Qwen, Google Stitch skills for agent development, and the Superpowers agentic framework.
+**Today at a glance:** Five practical AI tools and resources: Claude cookbooks and CLI templates, a high-usage OCR model, a popular quantized LLM, and an agentic skills framework.
 
 ## Top 5 recommendations
 
