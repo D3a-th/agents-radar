@@ -59,9 +59,6 @@ jobs:
         run: |
           REPORT="digests/$(date -u +%Y-%m-%d)/daily-picks.md"
           echo "report=$REPORT" >> "$GITHUB_OUTPUT"
-          echo "body<<EOF" >> "$GITHUB_OUTPUT"
-          cat "$REPORT" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: Send daily picks email
         uses: dawidd6/action-send-mail@v3
@@ -75,5 +72,5 @@ jobs:
           subject: "信息雷达｜今日 5 条推荐"
           to: sanjing@netopstec.com
           from: ${{ secrets.SMTP_FROM }}
-          body: ${{ steps.email.outputs.body }}
+          body: "Today's five recommended links are attached as a Markdown report."
           attachments: ${{ steps.email.outputs.report }}
